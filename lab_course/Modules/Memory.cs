@@ -37,6 +37,6 @@ namespace lab_course
         public void Clear()
         {
             OccupiedSize = 0;
-        }        
+        }
     }
 }

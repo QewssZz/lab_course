@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Queues;
 using Structures;
 
@@ -18,7 +19,6 @@ namespace lab_course
             get;
             private set;
         }
-        public HPFArray() { }
         public void Save(int quantity)
         {
             QueuesCount = quantity;
@@ -27,25 +27,25 @@ namespace lab_course
             {
                 Queues[i] = new FIFOQueue<Process, QueueableList<Process>>(new QueueableList<Process>());
             }
+            FirstNotEmpty = Int32.MaxValue;
         }
 
         public HPFArray Put(Process p)
         {
-            if (p.Priority < FirstNotEmpty)
-            {
-                FirstNotEmpty = p.Priority;
-            }
-            Queues[p.Priority].Put(p);
+            Queues[p.Priority - 1].Put(p);
             Count++;
+            if (p.Priority - 1 < FirstNotEmpty)
+            {
+                FirstNotEmpty = p.Priority - 1;
+            }
             return this;
         }
         public HPFArray Remove()
         {
             Queues[FirstNotEmpty].Remove();
-            if (Queues[FirstNotEmpty].Count == 0)
+            while (FirstNotEmpty + 1 < QueuesCount && Queues[FirstNotEmpty].Count == 0)
             {
-                //FirstNotEmpty++;
-                for (; FirstNotEmpty < QueuesCount && Queues[FirstNotEmpty].Count == 0; FirstNotEmpty++) ;
+                FirstNotEmpty++;
             }
             Count--;
             return this;
@@ -60,12 +60,20 @@ namespace lab_course
             {
                 Queues[i].Clear();
             }
+            Count = 0;
+            FirstNotEmpty = Int32.MaxValue;
             return this;
         }
-        //public string[] ToArray()
-        //{
 
-        //}
+        public ListBox.ObjectCollection ToArray()
+        {
+            ListBox.ObjectCollection result = new ListBox.ObjectCollection(new ListBox());
+            for (int i = 0; i < QueuesCount; i++)
+            {
+                result.AddRange(Queues[i].ToArray());
+            }
+            return result;
+        }
     }
 }
 

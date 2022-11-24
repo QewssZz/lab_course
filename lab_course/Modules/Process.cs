@@ -62,13 +62,14 @@ namespace lab_course
         public override string ToString()
         {
             return "ID: " + id +
-                " Status: " + Status + 
-                " Burst time: " + BurstTime +
-                " Work time: " + workTime + 
-                " Addr space: " + AddrSpace +  " ;";            
+                   " Status: " + Status +
+                   " Burst time: " + BurstTime +
+                   " Work time: " + workTime +
+                   " Addr space: " + AddrSpace + " ;" +
+                   " Priority: " + Priority;
         }
 
-       
+
         public int CompareTo(Process otherProc)
         {
             if (otherProc == null)

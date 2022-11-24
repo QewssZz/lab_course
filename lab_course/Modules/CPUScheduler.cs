@@ -17,7 +17,10 @@ namespace lab_course
         }
         public HPFArray Session()
         {
-            // только для епустой очереди
+            if (queue.Count == 0)
+            {
+                return queue;
+            }
             Process newActiveProcess = queue.Item();
             newActiveProcess.Status = ProcessStatus.running;
             queue.Remove();

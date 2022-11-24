@@ -32,4 +32,3 @@ namespace lab_course
         abstract public void DataUnbind();
     }
 }
-

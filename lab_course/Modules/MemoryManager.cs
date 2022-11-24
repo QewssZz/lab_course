@@ -22,11 +22,10 @@ namespace lab_course
             }
             return null;
         }
-
         public Memory Free(Process process)
         {
-            memory.OccupiedSize += process.AddrSpace;
+            memory.OccupiedSize -= process.AddrSpace;
             return memory;
         }
-    }   
+    }
 }

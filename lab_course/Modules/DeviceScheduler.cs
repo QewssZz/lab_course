@@ -17,6 +17,10 @@ namespace lab_course
         }
         public IQueueable<Process> Session()
         {
+            if (queue.Count == 0)
+            {
+                return queue;
+            }
             Process newActiveProcess = queue.Item();
             queue.Remove();
             resource.ActiveProcess = newActiveProcess;
@@ -24,3 +28,4 @@ namespace lab_course
         }
     }
 }
+

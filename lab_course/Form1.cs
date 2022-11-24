@@ -17,37 +17,28 @@ namespace lab_course
         {
             InitializeComponent();
             Model model = new Model();
-            cbRamSize.SelectedItem = cbRamSize.Items[0];
-            viewDetailed = new ViewDetailed(new Model(), new Controller(), this);
+            viewDetailed = new ViewDetailed(model, new Controller(), this);
             viewDetailed.DataBind();
-        }
-        public Label LblTime
-        {
-            get { return lblTime; }
+            UpdateSettings();
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
             sessionPreparation();
-            viewDetailed.ReactToUserActions(
-                ModelOperations.SaveSettings);
+            viewDetailed.ReactToUserActions(ModelOperations.SaveSettings);
         }
 
 
         private void btnWork_Click(object sender, EventArgs e)
         {
-            viewDetailed.ReactToUserActions(
-                ModelOperations.WorkingCycle);
-
+            viewDetailed.ReactToUserActions(ModelOperations.WorkingCycle);
         }
 
         private void btnSessionEnd_Click(object sender, EventArgs e)
         {
-            viewDetailed.ReactToUserActions(
-                ModelOperations.EndOfSession);
+            viewDetailed.ReactToUserActions(ModelOperations.EndOfSession);
             endOfSession();
             UpdateSettings();
-
         }
 
 
@@ -57,9 +48,9 @@ namespace lab_course
             btnEnd.Enabled = true;
             if (rbAuto.Checked)
             {
-                timer1.Start();
-                btnWork.Enabled = false;
-                timer1.Tick += btnWork_Click;
+                timer1.Stop();
+                btnWork.Enabled = true;
+                timer1.Tick -= btnWork_Click;
             }
             btnWork.Enabled = rbManual.Checked;
             panel1.Enabled = false;
@@ -99,39 +90,6 @@ namespace lab_course
             cbRamSize.SelectedItem = cbRamSize.Items[0];
         }
 
-
-
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (rbAuto.Checked)
@@ -142,18 +100,17 @@ namespace lab_course
         }
         private void rbAutomatic_CheckedChanged(object sender, EventArgs e)
         {
-            RadioButton rb = sender as RadioButton;
-            //if (rb.Checked)
-            //{
-            //    timer1.Start();
-            //    btnWork.Enabled = false;
-            //    timer1.Tick += btnWork_Click;
-            //}
-            if (rb.Checked == false)
+            if (timer1.Enabled)
             {
                 timer1.Stop();
                 btnWork.Enabled = true;
                 timer1.Tick -= btnWork_Click;
+            }
+            else
+            {
+                timer1.Start();
+                btnWork.Enabled = false;
+                timer1.Tick += btnWork_Click;
             }
         }
     }

@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="lab_course.ViewDetailed" Collapsed="true">
+    <Position X="3" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAACAAAAAAAQAACAEAAQAAAQAAAAAA=</HashCode>
+      <FileName>ViewDetailed.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lab_course.View" Collapsed="true">
+    <Position X="3" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAACAAAAEAAAAAAAAAAAACAAAAAAAAQAAIAAA=</HashCode>
+      <FileName>View.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="lab_course.Statistics" Collapsed="true">
+    <Position X="3" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAECAAAAAAAIABAAAAAwAICAmAAQCQgAABAAAA=</HashCode>
+      <FileName>Statistics.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="lab_course.Model" Collapsed="true">
+    <Position X="4.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAIAIAIAAAAAQAgMIEQRBCAkAACEAAQQYACAAhBAAA=</HashCode>
+      <FileName>Model.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="lab_course.HPFArray" Collapsed="true">
+    <Position X="4.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAIAAAAAAAAQAAAAABAQEQAAAAAAAAAAAAABAAAg=</HashCode>
+      <FileName>HPFArray.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lab_course.Controller" Collapsed="true">
+    <Position X="4.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lab_course.CPUScheduler" Collapsed="true">
+    <Position X="6.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAASAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Modules\CPUScheduler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lab_course.DeviceScheduler" Collapsed="true">
+    <Position X="8.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAASAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Modules\DeviceScheduler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lab_course.IdGenerator" Collapsed="true">
+    <Position X="10" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAgA=</HashCode>
+      <FileName>Modules\IdGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lab_course.Memory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IgAAAIAAAAAAgAAAIAAAAAAAgAAAAAAAAAAAACBAAAA=</HashCode>
+      <FileName>Modules\Memory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="lab_course.MemoryManager" Collapsed="true">
+    <Position X="8.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAI=</HashCode>
+      <FileName>Modules\MemoryManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lab_course.Process" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAQAIAEAAAAAgQEAAAACAAAAAAEBAgAAAAAAAAAAgA=</HashCode>
+      <FileName>Modules\Process.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="lab_course.Resource" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAIAAAAAAAAEAIAAAAAAAgAAAAAEAAAAAAABAAAA=</HashCode>
+      <FileName>Modules\Resource.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="lab_course.Settings" Collapsed="true">
+    <Position X="8.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAIAABAAAEABgAAAAAEAAA=</HashCode>
+      <FileName>Modules\Settings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="lab_course.ModelOperations" Collapsed="true">
+    <Position X="4.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAgAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="lab_course.ProcessStatus" Collapsed="true">
+    <Position X="6.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAQAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Modules\Process.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

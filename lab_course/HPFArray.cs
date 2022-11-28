@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Queues;
 using Structures;
@@ -11,7 +7,7 @@ namespace lab_course
 {
     class HPFArray
     {
-        IQueueable<Process>[] Queues;
+        private IQueueable<Process>[] Queues;
         private int FirstNotEmpty;
         private int QueuesCount;
         public int Count

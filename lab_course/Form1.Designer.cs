@@ -88,11 +88,11 @@ namespace lab_course
             this.label12 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.CPULoad = new System.Windows.Forms.Label();
             this.lblCPULoad = new System.Windows.Forms.Label();
-            this.lblPerfomance = new System.Windows.Forms.Label();
+            this.CPULoad = new System.Windows.Forms.Label();
+            this.panel15 = new System.Windows.Forms.Panel();
             this.Perfomance = new System.Windows.Forms.Label();
+            this.lblPerfomance = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudIntensity)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -211,7 +211,7 @@ namespace lab_course
             this.nudBurstMin.Size = new System.Drawing.Size(149, 22);
             this.nudBurstMin.TabIndex = 4;
             this.nudBurstMin.Value = new decimal(new int[] {
-            1,
+            5,
             0,
             0,
             0});
@@ -245,7 +245,7 @@ namespace lab_course
             this.nudBurstMax.Size = new System.Drawing.Size(149, 22);
             this.nudBurstMax.TabIndex = 0;
             this.nudBurstMax.Value = new decimal(new int[] {
-            1,
+            10,
             0,
             0,
             0});
@@ -259,7 +259,8 @@ namespace lab_course
             "4000",
             "8000",
             "16000",
-            "32000"});
+            "32000",
+            "64000"});
             this.cbRamSize.Location = new System.Drawing.Point(-1, 68);
             this.cbRamSize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbRamSize.Name = "cbRamSize";
@@ -313,11 +314,16 @@ namespace lab_course
             // 
             this.nudAddrSpaceMin.Location = new System.Drawing.Point(-1, 69);
             this.nudAddrSpaceMin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.nudAddrSpaceMin.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.nudAddrSpaceMin.Name = "nudAddrSpaceMin";
             this.nudAddrSpaceMin.Size = new System.Drawing.Size(149, 22);
             this.nudAddrSpaceMin.TabIndex = 0;
             this.nudAddrSpaceMin.Value = new decimal(new int[] {
-            1,
+            100,
             0,
             0,
             0});
@@ -348,11 +354,16 @@ namespace lab_course
             // 
             this.nudAddrSpaceMax.Location = new System.Drawing.Point(-1, 68);
             this.nudAddrSpaceMax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.nudAddrSpaceMax.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.nudAddrSpaceMax.Name = "nudAddrSpaceMax";
             this.nudAddrSpaceMax.Size = new System.Drawing.Size(149, 22);
             this.nudAddrSpaceMax.TabIndex = 0;
             this.nudAddrSpaceMax.Value = new decimal(new int[] {
-            1,
+            150,
             0,
             0,
             0});
@@ -433,6 +444,7 @@ namespace lab_course
             // 
             // panel9
             // 
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel9.Controls.Add(this.OccupiedSize);
             this.panel9.Controls.Add(this.label11);
             this.panel9.Controls.Add(this.FreeSize);
@@ -652,7 +664,7 @@ namespace lab_course
             this.nudPriority.Size = new System.Drawing.Size(163, 22);
             this.nudPriority.TabIndex = 22;
             this.nudPriority.Value = new decimal(new int[] {
-            1,
+            5,
             0,
             0,
             0});
@@ -706,29 +718,13 @@ namespace lab_course
             // 
             // panel14
             // 
+            this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel14.Controls.Add(this.lblCPULoad);
             this.panel14.Controls.Add(this.CPULoad);
-            this.panel14.Location = new System.Drawing.Point(1108, 531);
+            this.panel14.Location = new System.Drawing.Point(1108, 535);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(198, 60);
+            this.panel14.Size = new System.Drawing.Size(198, 56);
             this.panel14.TabIndex = 22;
-            // 
-            // panel15
-            // 
-            this.panel15.Controls.Add(this.Perfomance);
-            this.panel15.Controls.Add(this.lblPerfomance);
-            this.panel15.Location = new System.Drawing.Point(1111, 609);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(195, 61);
-            this.panel15.TabIndex = 23;
-            // 
-            // CPULoad
-            // 
-            this.CPULoad.AutoSize = true;
-            this.CPULoad.Location = new System.Drawing.Point(14, 30);
-            this.CPULoad.Name = "CPULoad";
-            this.CPULoad.Size = new System.Drawing.Size(0, 17);
-            this.CPULoad.TabIndex = 0;
             // 
             // lblCPULoad
             // 
@@ -739,14 +735,23 @@ namespace lab_course
             this.lblCPULoad.TabIndex = 1;
             this.lblCPULoad.Text = "Загруженность процессора";
             // 
-            // lblPerfomance
+            // CPULoad
             // 
-            this.lblPerfomance.AutoSize = true;
-            this.lblPerfomance.Location = new System.Drawing.Point(3, 10);
-            this.lblPerfomance.Name = "lblPerfomance";
-            this.lblPerfomance.Size = new System.Drawing.Size(116, 17);
-            this.lblPerfomance.TabIndex = 0;
-            this.lblPerfomance.Text = "Прогруженность";
+            this.CPULoad.AutoSize = true;
+            this.CPULoad.Location = new System.Drawing.Point(14, 30);
+            this.CPULoad.Name = "CPULoad";
+            this.CPULoad.Size = new System.Drawing.Size(0, 17);
+            this.CPULoad.TabIndex = 0;
+            // 
+            // panel15
+            // 
+            this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel15.Controls.Add(this.Perfomance);
+            this.panel15.Controls.Add(this.lblPerfomance);
+            this.panel15.Location = new System.Drawing.Point(1108, 609);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(198, 61);
+            this.panel15.TabIndex = 23;
             // 
             // Perfomance
             // 
@@ -755,6 +760,15 @@ namespace lab_course
             this.Perfomance.Name = "Perfomance";
             this.Perfomance.Size = new System.Drawing.Size(0, 17);
             this.Perfomance.TabIndex = 1;
+            // 
+            // lblPerfomance
+            // 
+            this.lblPerfomance.AutoSize = true;
+            this.lblPerfomance.Location = new System.Drawing.Point(3, 10);
+            this.lblPerfomance.Name = "lblPerfomance";
+            this.lblPerfomance.Size = new System.Drawing.Size(147, 17);
+            this.lblPerfomance.TabIndex = 0;
+            this.lblPerfomance.Text = "Производительность";
             // 
             // Form1
             // 

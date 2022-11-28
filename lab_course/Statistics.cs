@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace lab_course
 {
@@ -21,6 +16,7 @@ namespace lab_course
             ArrivalProcessesCount = 0;
             CpuFreeTime = 0;
             CpuUtilization = 0;
+            Throughput = 0;
         }
         public void IncCPUFreeTime()
         {
@@ -38,7 +34,7 @@ namespace lab_course
         public long CpuFreeTime
         {
             get;
-            private set;
+            set;
         }
         public double CpuUtilization
         {
@@ -65,7 +61,7 @@ namespace lab_course
         // подписчик
         private void Subscribe()
         {
-            //commonTime.PropertyChanged += PropertyChangedHandler;
+            commonTime.PropertyChanged += PropertyChangedHandler;
         }
         private void Unsubscribe()
         {

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
 using Queues;
 using Structures;
 
@@ -11,26 +9,18 @@ namespace lab_course
     class Model : INotifyPropertyChanged
     {
         public readonly Statistics statistics;
-        /*private*/
         public readonly SystemClock clock;
-        //времено public для теста
-        /*private*/
         public readonly Resource cpu;
-        /*private*/
         public readonly Resource firstDevice;
         public readonly Resource secondDevice;
         public readonly Memory ram;
         private IdGenerator idGen;
-        //времено public для теста 
-        /*private*/
-        //public IQueueable<Process> readyQueue; 
         public HPFArray readyQueue;
         public HPFArray ReadyQueue
         {
             get { return readyQueue; }
             set { readyQueue = value; OnPropertyChanged(); }
         }
-        /*private*/
         public IQueueable<Process> firstDeviceQueue;
         public IQueueable<Process> FirstDeviceQueue
         {
@@ -53,8 +43,8 @@ namespace lab_course
 
         public Model()
         {
-            statistics = new Statistics(clock);
             clock = new SystemClock();
+            statistics = new Statistics(clock);
             cpu = new Resource();
             firstDevice = new Resource();
             secondDevice = new Resource();
@@ -98,18 +88,19 @@ namespace lab_course
                     }
                 }
             }
+            cpu.WorkingCycle();
+            firstDevice.WorkingCycle();
+            secondDevice.WorkingCycle();
             if (cpu.IsFree())
             {
                 statistics.IncCPUFreeTime();
             }
             statistics.IncArrivalProcCount();
-            cpu.WorkingCycle();
-            firstDevice.WorkingCycle();
-            secondDevice.WorkingCycle();
         }
 
         public void Clear()
         {
+            statistics.Clear();
             clock.Clear();
             cpu.Clear();
             firstDevice.Clear();
@@ -124,7 +115,7 @@ namespace lab_course
         {
             Process resourceFreeingProcess = sender as Process;
 
-            switch (resourceFreeingProcess.Status)//p.Status) 
+            switch (resourceFreeingProcess.Status) 
             {
                 case ProcessStatus.terminated:
                     Unsubscribe(resourceFreeingProcess);

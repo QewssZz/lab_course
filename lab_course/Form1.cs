@@ -17,28 +17,37 @@ namespace lab_course
         {
             InitializeComponent();
             Model model = new Model();
-            viewDetailed = new ViewDetailed(model, new Controller(), this);
+            cbRamSize.SelectedItem = cbRamSize.Items[0];
+            viewDetailed = new ViewDetailed(new Model(), new Controller(), this);
             viewDetailed.DataBind();
-            UpdateSettings();
+        }
+        public Label LblTime
+        {
+            get { return lblTime; }
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
             sessionPreparation();
-            viewDetailed.ReactToUserActions(ModelOperations.SaveSettings);
+            viewDetailed.ReactToUserActions(
+                ModelOperations.SaveSettings);
         }
 
 
         private void btnWork_Click(object sender, EventArgs e)
         {
-            viewDetailed.ReactToUserActions(ModelOperations.WorkingCycle);
+            viewDetailed.ReactToUserActions(
+                ModelOperations.WorkingCycle);
+
         }
 
         private void btnSessionEnd_Click(object sender, EventArgs e)
         {
-            viewDetailed.ReactToUserActions(ModelOperations.EndOfSession);
+            viewDetailed.ReactToUserActions(
+                ModelOperations.EndOfSession);
             endOfSession();
             UpdateSettings();
+
         }
 
 
@@ -48,9 +57,9 @@ namespace lab_course
             btnEnd.Enabled = true;
             if (rbAuto.Checked)
             {
-                timer1.Stop();
-                btnWork.Enabled = true;
-                timer1.Tick -= btnWork_Click;
+                timer1.Start();
+                btnWork.Enabled = false;
+                timer1.Tick += btnWork_Click;
             }
             btnWork.Enabled = rbManual.Checked;
             panel1.Enabled = false;
@@ -59,6 +68,7 @@ namespace lab_course
             panel4.Enabled = false;
             panel5.Enabled = false;
             panel6.Enabled = false;
+            panel12.Enabled = false;
 
         }
 
@@ -78,16 +88,18 @@ namespace lab_course
             panel4.Enabled = true;
             panel5.Enabled = true;
             panel6.Enabled = true;
+            panel12.Enabled = true;
         }
 
         private void UpdateSettings()
         {
             nudIntensity.Value = 0.5m;
-            nudBurstMin.Value = nudBurstMin.Minimum;
-            nudBurstMax.Value = nudBurstMax.Minimum;
-            nudAddrSpaceMin.Value = nudAddrSpaceMin.Minimum;
-            nudAddrSpaceMax.Value = nudAddrSpaceMax.Minimum;
-            cbRamSize.SelectedItem = cbRamSize.Items[0];
+            nudBurstMin.Value = 3;
+            nudBurstMax.Value = 5;
+            nudAddrSpaceMin.Value = 100;
+            nudAddrSpaceMax.Value = 150;
+            cbRamSize.SelectedItem = cbRamSize.Items[3];
+            nudPriority.Value = nudPriority.Minimum;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -100,18 +112,21 @@ namespace lab_course
         }
         private void rbAutomatic_CheckedChanged(object sender, EventArgs e)
         {
-            if (timer1.Enabled)
+            RadioButton rb = sender as RadioButton;
+            //if (rb.Checked)
+            //{
+            //    timer1.Start();
+            //    btnWork.Enabled = false;
+            //    timer1.Tick += btnWork_Click;
+            //}
+            if (rb.Checked == false)
             {
                 timer1.Stop();
                 btnWork.Enabled = true;
                 timer1.Tick -= btnWork_Click;
             }
-            else
-            {
-                timer1.Start();
-                btnWork.Enabled = false;
-                timer1.Tick += btnWork_Click;
-            }
         }
+
+        
     }
 }

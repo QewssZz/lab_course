@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace lab_course
 {
     enum ProcessStatus { ready, running, waiting, terminated }
-    class Process : IComparable<Process>// IComparable
+    class Process : IComparable<Process>
     {
         private long id;
         private string name;
         public readonly int Priority;
         private long workTime;
         private Random rand = new Random();
-
         public event EventHandler FreeingAResource;
 
         private void OnFreeResource(object sender, EventArgs e)
@@ -64,8 +61,7 @@ namespace lab_course
             return "ID: " + id +
                    " Status: " + Status +
                    " Burst time: " + BurstTime +
-                   " Work time: " + workTime +
-                   " Addr space: " + AddrSpace + " ;" +
+                   " Addr space: " + AddrSpace  +
                    " Priority: " + Priority;
         }
 

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace lab_course
+﻿namespace lab_course
 {
     class MemoryManager
     {

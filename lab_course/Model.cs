@@ -144,7 +144,7 @@ namespace lab_course
                     if (secondDevice.IsFree())
                     {
                         putProcessOnResource(secondDevice);
-                    }
+                    }                    
                     break;
                 case ProcessStatus.ready:
                     if (resourceFreeingProcess == firstDevice.ActiveProcess)

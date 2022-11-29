@@ -94,8 +94,8 @@ namespace lab_course
         private void UpdateSettings()
         {
             nudIntensity.Value = 0.5m;
-            nudBurstMin.Value = 3;
-            nudBurstMax.Value = 5;
+            nudBurstMin.Value = nudBurstMin.Minimum;
+            nudBurstMax.Value = nudBurstMax.Minimum;
             nudAddrSpaceMin.Value = 100;
             nudAddrSpaceMax.Value = 150;
             cbRamSize.SelectedItem = cbRamSize.Items[3];
